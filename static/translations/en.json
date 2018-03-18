@@ -1,0 +1,8 @@
+{
+  "server": {
+    "duplicate_unique_fields": "Duplicate unique fields: {{fields}}",
+    "illegal_post_data": "Illegal post data",
+    "illegal_patch_data": "Illegal patch data",
+    "unknown_error": "Unknown error"
+  }
+}
