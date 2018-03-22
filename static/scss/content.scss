@@ -1,0 +1,25 @@
+@import "base";
+
+.content {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  top: $headerHeight;
+  background-color: $contentBackgroundColor;
+  overflow: auto;
+  overflow-y: scroll;
+  padding: $contentLeftPadding;
+}
+
+.content-body {
+  animation: content-body-show 0.2s ease-in-out;
+}
+
+@keyframes content-body-show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

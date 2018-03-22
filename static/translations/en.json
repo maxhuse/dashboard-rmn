@@ -1,4 +1,6 @@
 {
+  "dashboard": "Dashboard",
+  "network_request_failed": "Network request failed",
   "server": {
     "duplicate_unique_fields": "Duplicate unique fields: {{fields}}",
     "illegal_post_data": "Illegal post data",

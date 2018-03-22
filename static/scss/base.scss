@@ -1,6 +1,9 @@
 $mainFontColor: rgba(0,0,0,0.87);
-
-$contentBg: #f5f5f5;
+$headerBackgroundColor: white;
+$contentBackgroundColor: #f5f5f5;
+$headerHeight: 40px;
+$contentLeftPadding: 10px;
+$preloaderColor: #616161;
 
 @mixin shadow($number) {
   @if $number == 0 {
@@ -93,6 +96,6 @@ body {
   color: $mainFontColor;
 }
 
-.hide {
+.h-hide {
   display: none;
 }

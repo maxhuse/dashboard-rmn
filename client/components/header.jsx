@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
-import { observer } from 'mobx-react';
+import React from 'react';
+import i18next from 'i18next';
 
-@observer
-export default class Header extends Component {
-  render() {
-    return (
-      <div>Header</div>
-    );
-  }
+export default function Header() {
+  return (
+    <header className="header">
+      <div className="header__title">{i18next.t('dashboard')}</div>
+    </header>
+  );
 }

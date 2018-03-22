@@ -1,0 +1,19 @@
+@import "base";
+
+.header {
+  position: absolute;
+  @include shadow(2);
+  width: 100%;
+  height: $headerHeight;
+  top: 0;
+  background-color: $headerBackgroundColor;
+  z-index: 10;
+}
+
+.header__title {
+  font-weight: bold;
+  font-size: 24px;
+  height: 100%;
+  line-height: $headerHeight;
+  padding-left: $contentLeftPadding;
+}

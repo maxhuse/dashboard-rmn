@@ -62,7 +62,7 @@ app.get('*', (req, res) => {
 
 app.listen(3000, 'localhost', (err) => {
   if (err) {
-    console.log(err); // eslint-disable-line no-console
+    logger.log('error', err);
 
     return;
   }
