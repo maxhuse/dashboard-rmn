@@ -1,10 +1,16 @@
 {
   "dashboard": "Dashboard",
+  "date": "Date",
   "network_request_failed": "Network request failed",
+  "no_data_here": "No data here",
+  "last_orders": "Last Orders",
+  "price": "Price",
+  "order": "Order",
   "server": {
     "duplicate_unique_fields": "Duplicate unique fields: {{fields}}",
     "illegal_post_data": "Illegal post data",
     "illegal_patch_data": "Illegal patch data",
     "unknown_error": "Unknown error"
-  }
+  },
+  "today": "Today"
 }

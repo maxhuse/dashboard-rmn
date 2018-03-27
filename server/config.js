@@ -4,6 +4,9 @@ module.exports = {
   logsDir: './logs',
   sequelize: {
     dialect: 'sqlite',
+    dialectOptions: {
+      charset: 'utf8',
+    },
     pool: {
       max: 5,
       idle: 30000,

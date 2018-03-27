@@ -1,0 +1,20 @@
+@import "base";
+
+.card {
+  background-color: white;
+  border-radius: 3px;
+  @include shadow(1);
+  margin: 0 0 10px 10px;
+  overflow: hidden;
+}
+
+.card__content {
+  padding: 16px;
+}
+
+.card__header {
+  margin: 0;
+  font-size: 20px;
+  padding: 16px 16px 0 16px;
+  font-weight: normal;
+}

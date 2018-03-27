@@ -5,6 +5,10 @@ $headerHeight: 40px;
 $contentLeftPadding: 10px;
 $preloaderColor: #616161;
 
+$tableHeaderBackground: #eeeeee;
+$tableBorderColor: #e0e0e0;
+$tableHeaderTextColor: #9e9e9e;
+
 @mixin shadow($number) {
   @if $number == 0 {
     box-shadow: none;

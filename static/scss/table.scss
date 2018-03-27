@@ -1,0 +1,43 @@
+@import "base";
+
+$tablePadding: 0 14px 0 24px;
+
+.table {
+  display: block;
+  border: 1px solid $tableBorderColor;
+}
+
+.table__row {
+  display: flex;
+  height: 48px;
+  background-color: #fff;
+  padding: $tablePadding;
+  position: relative;
+  outline: none;
+  justify-content: space-between;
+}
+
+.table__row_header {
+  font-size: 0.95rem;
+  font-family: Roboto Medium;
+  color: $tableHeaderTextColor;
+  background-color: $tableHeaderBackground;
+  border-bottom: 1px solid $tableBorderColor;
+}
+
+.table__cell {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  flex: 1 1 auto;
+
+  & + & {
+    padding-left: 24px;
+    border-left: 1px solid $tableBorderColor;
+  }
+}
+
+@import "table-orders";

@@ -1,9 +1,9 @@
 const { httpCodes } = require('../../constants');
-const sequelize = require('../../sequelize');
+const db = require('../../db');
 const co = require('co');
 
 const getOrders = (req, res, next) => co(function* gen() {
-  const orders = yield sequelize.getOrders();
+  const orders = yield db.getAllOrders();
 
   return res.status(httpCodes.OK).send(orders);
 }).catch(error => next(error));
