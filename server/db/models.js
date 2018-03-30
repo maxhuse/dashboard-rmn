@@ -86,9 +86,15 @@ const orders = (sequelize) => {
       field: 'product_id',
       allowNull: false,
     },
-    date: {
+    creationDate: {
       type: Sequelize.DataTypes.INTEGER,
+      field: 'creation_date',
       allowNull: false,
+    },
+    closingDate: {
+      type: Sequelize.DataTypes.INTEGER,
+      field: 'closing_date',
+      allowNull: true,
     },
     status: {
       type: Sequelize.DataTypes.STRING({

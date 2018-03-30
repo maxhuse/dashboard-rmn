@@ -1,6 +1,6 @@
 /* global window, document */
 import 'babel-polyfill';
-import React from 'react';
+import React, { Fragment } from 'react';
 import { configure as mobxConfigure } from 'mobx';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
@@ -9,8 +9,10 @@ import moment from 'moment';
 import Promise from 'bluebird';
 import { Provider } from 'mobx-react';
 import { BrowserRouter } from 'react-router-dom';
+import DevTools from 'mobx-react-devtools';
 import App from 'components/app';
 import ordersStore from 'stores/data/orders';
+import todayStore from 'stores/data/today';
 
 import '../static/scss/app.scss';
 import '../static/img/favicon.ico';
@@ -33,6 +35,7 @@ const rootElement = document.getElementById('root');
 
 const stores = {
   ordersStore,
+  todayStore,
 };
 
 i18next.init({
@@ -47,11 +50,14 @@ i18next.init({
   // GERONIMO!
   render(
     <AppContainer>
-      <Provider {...stores}>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </Provider>
+      <Fragment>
+        <Provider {...stores}>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </Provider>
+        {process.env.NODE_ENV !== 'production' && <DevTools />}
+      </Fragment>
     </AppContainer>,
     rootElement
   );

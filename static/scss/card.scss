@@ -6,15 +6,15 @@
   @include shadow(1);
   margin: 0 0 10px 10px;
   overflow: hidden;
-}
-
-.card__content {
-  padding: 16px;
+  padding: 20px;
 }
 
 .card__header {
-  margin: 0;
+  margin-bottom: 16px;
   font-size: 20px;
-  padding: 16px 16px 0 16px;
   font-weight: normal;
+}
+
+.card__content {
+
 }

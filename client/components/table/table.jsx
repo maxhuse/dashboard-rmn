@@ -41,10 +41,7 @@ const TableContent = observer(({ items, cells }) => (
 @observer
 export default class Table extends Component {
   render() {
-    const {
-      cells,
-      items,
-    } = this.props;
+    const { cells, items } = this.props;
 
     const hasItems = items.length > 0;
 

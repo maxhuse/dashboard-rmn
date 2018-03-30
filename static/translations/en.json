@@ -1,10 +1,13 @@
 {
+  "closed_orders": "Closed Orders",
   "dashboard": "Dashboard",
   "date": "Date",
   "network_request_failed": "Network request failed",
+  "new_orders": "New Orders",
   "no_data_here": "No data here",
   "last_orders": "Last Orders",
   "price": "Price",
+  "revenue": "Revenue",
   "order": "Order",
   "server": {
     "duplicate_unique_fields": "Duplicate unique fields: {{fields}}",
@@ -12,5 +15,6 @@
     "illegal_patch_data": "Illegal patch data",
     "unknown_error": "Unknown error"
   },
-  "today": "Today"
+  "today": "Today",
+  "visits": "Visits"
 }

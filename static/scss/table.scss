@@ -10,6 +10,7 @@ $tablePadding: 0 14px 0 24px;
 .table__row {
   display: flex;
   height: 48px;
+  line-height: 48px;
   background-color: #fff;
   padding: $tablePadding;
   position: relative;
@@ -26,8 +27,7 @@ $tablePadding: 0 14px 0 24px;
 }
 
 .table__cell {
-  display: flex;
-  align-items: center;
+  display: inline-block;
   height: 100%;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -41,3 +41,4 @@ $tablePadding: 0 14px 0 24px;
 }
 
 @import "table-orders";
+@import "table-today";

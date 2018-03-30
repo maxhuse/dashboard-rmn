@@ -7,6 +7,7 @@ const errorMiddleware = require('./../middlewares/error');
 
 // Routes
 const ordersRoute = require('./orders/index');
+const todayRoute = require('./today/index');
 
 const api = express();
 
@@ -15,6 +16,7 @@ api.use(bodyParser.urlencoded({ extended: false }));
 api.use(bodyParser.json());
 
 api.use('/orders', ordersRoute);
+api.use('/today', todayRoute);
 
 // 404 middleware
 api.use('*', (req, res) => res.status(httpCodes.NOT_FOUND).send({}));
