@@ -1,4 +1,3 @@
-/* global window, document */
 import 'babel-polyfill';
 import React, { Fragment } from 'react';
 import { configure as mobxConfigure } from 'mobx';
@@ -10,6 +9,7 @@ import Promise from 'bluebird';
 import { Provider } from 'mobx-react';
 import { BrowserRouter } from 'react-router-dom';
 import DevTools from 'mobx-react-devtools';
+import websocket from 'websocket';
 import App from 'components/app';
 import ordersStore from 'stores/data/orders';
 import todayStore from 'stores/data/today';
@@ -30,6 +30,8 @@ const { en } = languages;
 const currentLanguage = window.localStorage.getItem('language') || 'en';
 
 moment.locale(currentLanguage);
+
+websocket.open();
 
 const rootElement = document.getElementById('root');
 

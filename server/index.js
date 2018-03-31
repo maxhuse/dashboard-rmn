@@ -1,13 +1,16 @@
 const path = require('path');
 const express = require('express');
 const favicon = require('serve-favicon');
+const i18next = require('i18next');
+const helmet = require('helmet');
+const Socket = require('./socket');
+const logger = require('./logger');
+const constants = require('./constants');
+
 const api = require('./routes');
 
 const app = express();
-const helmet = require('helmet');
 
-const i18next = require('i18next');
-const logger = require('./logger');
 const { en } = require('../static/translations/index');
 
 app.use(helmet());
@@ -60,7 +63,7 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../index.html'));
 });
 
-app.listen(3000, 'localhost', (err) => {
+const server = app.listen(3000, 'localhost', (err) => {
   if (err) {
     logger.log('error', err);
 
@@ -69,3 +72,14 @@ app.listen(3000, 'localhost', (err) => {
 
   logger.log('info', 'server started', { port: 3000 });
 });
+
+process.on('unhandledRejection', (error) => {
+  logger.log('warn', error);
+});
+
+// set max request timeout
+server.timeout = 15 * 60 * 1000;
+
+const socket = new Socket({ port: constants.WEBSOCKET_PORT });
+
+socket.connection();
