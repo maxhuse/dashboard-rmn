@@ -30,14 +30,11 @@ db.getAllOrders = () => db.orders.findAll({
   ],
 });
 
-db.getTodayNewOrders = ({ from, to }) => db.orders.findOne({
+db.getTodayOrders = ({ from, to }) => db.orders.findOne({
   attributes: [
     [Sequelize.fn('count'), 'count']
   ],
   where: {
-    status: {
-      [eq]: orderStatus.NEW,
-    },
     creationDate: {
       [gt]: from,
       [lte]: to,
@@ -72,6 +69,5 @@ db.getTodayVisits = ({ from, to }) => db.visits.findOne({
     },
   },
 });
-
 
 module.exports = db;

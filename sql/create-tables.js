@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const co = require('co');
 const moment = require('moment');
-const { orderStatus } = require('../shared/constants')
+const { orderStatus } = require('../shared/constants');
 const config = require('../server/config');
 const models = require('../server/db/models');
 

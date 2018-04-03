@@ -6,6 +6,7 @@ const helmet = require('helmet');
 const Socket = require('./socket');
 const logger = require('./logger');
 const constants = require('../shared/constants');
+const generator = require('./generator');
 
 const api = require('./routes');
 
@@ -71,6 +72,11 @@ const server = app.listen(3000, 'localhost', (err) => {
   }
 
   logger.log('info', 'server started', { port: 3000 });
+
+  // Generate new visitors and orders
+  if (process.env.NODE_ENV !== 'production') {
+    generator.start();
+  }
 });
 
 process.on('unhandledRejection', (error) => {

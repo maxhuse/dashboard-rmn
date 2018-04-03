@@ -8,7 +8,7 @@ const fetchToday = () => co(function* fetchGen() {
 
   // Get information for the current day
   const { newOrdersModel, closedOrdersModel, visitsModel } = yield {
-    newOrdersModel: db.getTodayNewOrders({ from, to }),
+    newOrdersModel: db.getTodayOrders({ from, to }),
     closedOrdersModel: db.getTodayClosedOrders({ from, to }),
     visitsModel: db.getTodayVisits({ from, to }),
   };
