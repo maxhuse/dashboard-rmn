@@ -5,7 +5,7 @@ const i18next = require('i18next');
 const helmet = require('helmet');
 const Socket = require('./socket');
 const logger = require('./logger');
-const constants = require('./constants');
+const constants = require('../shared/constants');
 
 const api = require('./routes');
 

@@ -35,10 +35,14 @@ class TodayCard extends Component {
         set(this.todayItems[0], data);
       }
     );
+
+    // Subscribe the store for changes from the WebSocket
+    props.todayStore.subscribeOnUpdate();
   }
 
   componentWillUnmount() {
     this.disposeTodayItemsReaction();
+    this.props.todayStore.unsubscribeOnUpdate();
   }
 
   render() {

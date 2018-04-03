@@ -4,4 +4,5 @@ module.exports = {
     PAID: 'paid',
     CLOSED: 'closed',
   },
+  WEBSOCKET_PORT: 9010,
 };

@@ -7,5 +7,4 @@ module.exports = {
     SERVICE_UNAVAILABLE: 503,
     OK: 200,
   },
-  WEBSOCKET_PORT: 9010,
 };

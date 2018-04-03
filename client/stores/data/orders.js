@@ -3,7 +3,7 @@ import ajax from 'ajax';
 
 const URL = '/api/orders';
 
-export class OrdersStore {
+class OrdersStore {
   @observable data = [];
 
   fetch = flow(function* fetch() {
