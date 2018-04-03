@@ -30,6 +30,14 @@ db.getAllOrders = () => db.orders.findAll({
   ],
 });
 
+db.getOrderById = (id) => db.orders.findById(id, {
+  attributes: ['id', 'creationDate', 'status', 'value'],
+  include: [
+    { model: db.products, attributes: ['name'], required: false },
+    { model: db.visitors, attributes: ['id'], required: false }
+  ],
+});
+
 db.getTodayOrders = ({ from, to }) => db.orders.findOne({
   attributes: [
     [Sequelize.fn('count'), 'count']

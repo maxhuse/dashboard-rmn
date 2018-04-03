@@ -3,9 +3,8 @@ const express = require('express');
 const favicon = require('serve-favicon');
 const i18next = require('i18next');
 const helmet = require('helmet');
-const Socket = require('./socket');
+const socket = require('./socket');
 const logger = require('./logger');
-const constants = require('../shared/constants');
 const generator = require('./generator');
 
 const api = require('./routes');
@@ -86,6 +85,5 @@ process.on('unhandledRejection', (error) => {
 // set max request timeout
 server.timeout = 15 * 60 * 1000;
 
-const socket = new Socket({ port: constants.WEBSOCKET_PORT });
-
+// Open websocket connection
 socket.connection();

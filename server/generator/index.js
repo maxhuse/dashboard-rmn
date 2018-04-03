@@ -3,6 +3,8 @@ const co = require('co');
 const db = require('../db');
 const logger = require('../logger');
 const { orderStatus } = require('../../shared/constants');
+const socket = require('../socket');
+
 const { eq } = db.Sequelize.Op;
 
 class Generator {
@@ -28,6 +30,7 @@ class Generator {
     }).catch(error => self.errorHandler(error));
   }
 
+  // eslint-disable-next-line class-methods-use-this
   getRandom(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
   }
@@ -42,12 +45,16 @@ class Generator {
       const visitorModel = visitors[self.getRandom(1, visitors.length)];
       const productModel = products[self.getRandom(1, products.length)];
 
-      yield db.orders.create({
+      const newModel = yield db.orders.create({
         visitorId: visitorModel.get('id'),
         productId: productModel.get('id'),
         creationDate: moment().unix(),
         value: productModel.get('price'),
       });
+
+      const order = yield db.getOrderById(newModel.get('id'));
+
+      socket.broadcast({ event: 'add:order', payload: order });
     }).catch(error => self.errorHandler(error));
   }
 

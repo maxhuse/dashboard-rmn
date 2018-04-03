@@ -2,6 +2,7 @@ const WebSocket = require('ws');
 const logger = require('../logger');
 const PollingInterface = require('./polling/polling-interface');
 const Today = require('./polling/today');
+const constants = require('../../shared/constants');
 
 // List of pollings
 const POLLING_TASKS = {
@@ -235,4 +236,4 @@ class Socket {
   }
 }
 
-module.exports = Socket;
+module.exports = new Socket({ port: constants.WEBSOCKET_PORT });

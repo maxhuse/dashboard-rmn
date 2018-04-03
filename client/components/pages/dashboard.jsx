@@ -7,6 +7,54 @@ import Card from 'components/card';
 import { Table } from 'components/table';
 import { getFormatDateTime, beautifyCellValue } from 'helpers';
 
+// eslint-disable-next-line react/no-multi-comp
+@observer
+class LastOrdersCard extends Component {
+  constructor(props) {
+    super(props);
+
+    props.ordersStore.subscribeOnAdd();
+  }
+
+  componentWillUnmount() {
+    this.props.ordersStore.unsubscribeOnAdd();
+  }
+
+  render() {
+    const { ordersStore } = this.props;
+
+    const orderCells = [
+      {
+        id: 'order',
+        name: i18next.t('order'),
+        className: 'table_orders__cell_order',
+        getValue: item => item.product.name,
+      },
+      {
+        id: 'date',
+        name: i18next.t('date'),
+        className: 'table_orders__cell_date',
+        getValue: item => getFormatDateTime(item.creationDate),
+      },
+      {
+        id: 'price',
+        name: i18next.t('price'),
+        className: 'table_orders__cell_price',
+        getValue: item => item.value,
+      },
+    ];
+
+    return (
+      <Card headerText={i18next.t('last_orders')}>
+        <Table
+          cells={orderCells}
+          items={ordersStore.data}
+        />
+      </Card>
+    );
+  }
+}
+
 export const TodayTableCell = observer(({ className, getValue }) => {
   const cellValue = beautifyCellValue(getValue());
 
@@ -17,6 +65,7 @@ export const TodayTableCell = observer(({ className, getValue }) => {
   );
 });
 
+// eslint-disable-next-line react/no-multi-comp
 @observer
 class TodayCard extends Component {
   constructor(props) {
@@ -96,37 +145,11 @@ export default class Dashboard extends Component {
   render() {
     const { ordersStore, todayStore } = this.props;
 
-    const orderCells = [
-      {
-        id: 'order',
-        name: i18next.t('order'),
-        className: 'table_orders__cell_order',
-        getValue: item => item.product.name,
-      },
-      {
-        id: 'date',
-        name: i18next.t('date'),
-        className: 'table_orders__cell_date',
-        getValue: item => getFormatDateTime(item.creationDate),
-      },
-      {
-        id: 'price',
-        name: i18next.t('price'),
-        className: 'table_orders__cell_price',
-        getValue: item => item.value,
-      },
-    ];
-
     return (
       <div className="dashboard">
         <div className="dashboard__row">
           <div className="dashboard__row-item dashboard__row-item_orders">
-            <Card headerText={i18next.t('last_orders')}>
-              <Table
-                cells={orderCells}
-                items={ordersStore.data}
-              />
-            </Card>
+            <LastOrdersCard ordersStore={ordersStore} />
           </div>
 
           <div className="dashboard__row-item dashboard__row-item_today">
