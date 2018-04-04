@@ -24,6 +24,40 @@ npm run start
 
 5. [Open in browser localhost:3000/ →](http://localhost:3000/)
 
+### Available Scripts
+
+There are a few scripts that you can use.
+
+#### 👉  `npm start`
+
+- Use to run server in development mode
+- Watches for changes in server code
+
+#### 👉  `npm run watch` 🕶️
+
+- Use to compile client side in development mode
+- Watches for changes in client code
+
+#### 👉  `npm run build:production` 🔨
+
+- Use to compile client side code in production mode
+
+#### 👉  `npm run lint` 🔍
+
+- Use to run linting
+
+#### 👉  `npm run hot` 🔥
+
+- Use to compile client side in hot-reloading mode
+- Watches for changes in client code and hot reload
+- Run server in development mode (don't watch changes in server code)
+
+#### 👉  `npm run init`
+
+- Use to initialize database with default data
+
+
 ### Dependencies
 
  - Node.js 8+
+
