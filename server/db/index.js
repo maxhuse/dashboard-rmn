@@ -30,7 +30,7 @@ db.getAllOrders = () => db.orders.findAll({
   ],
 });
 
-db.getOrderById = (id) => db.orders.findById(id, {
+db.getOrderById = id => db.orders.findById(id, {
   attributes: ['id', 'creationDate', 'status', 'value'],
   include: [
     { model: db.products, attributes: ['name'], required: false },
