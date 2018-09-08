@@ -55,7 +55,7 @@
     "mobx-utils": "4.0.0",
     "mobx-react-devtools": "5.0.1",
     "node-sass": "4.7.2",
-    "nodemon": "1.17.2",
+    "nodemon": "1.18.4",
     "postcss-loader": "2.1.1",
     "prop-types": "15.6.1",
     "react": "16.2.0",
